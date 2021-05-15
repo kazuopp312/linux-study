@@ -1,0 +1,14 @@
+# Docker Compose のバージョン
+version: '3'
+# 全体を構成する要素(サービス)
+services:
+  # サービスの名前、コンテナの名前
+  app:
+    # 指定したディレクトリにあるDockerfileからDockerイメージを構築する .は同じ階層を意味する
+    build: .
+    # コンテナを起動させ続けるための記述
+    tty: true
+    # 「マウント」と呼ばれるファイル共有の設定
+    volumes:
+      #ホストOSの .(同じ階層のディレクトリ)と、コンテナの /linux-study を紐づけている
+      - .:/linux-study
